@@ -18,7 +18,7 @@ const Main = () => {
         <ul className="ul-topics">
             {topics.map((topic) => {
                 return (
-                    <li className="li-topics" key={topic.slug}> <Link to={`/topics/${topic.slug}`} onClick={(event) => console.log('Main' + topic.slug)} className="button-topics"> {topic.slug} </Link> </li>
+                    <li className="li-topics" key={topic.slug}> <Link to={`/topics/${topic.slug}`} className="button-topics"> {topic.slug} </Link> </li>
                  );
             })}
         </ul>

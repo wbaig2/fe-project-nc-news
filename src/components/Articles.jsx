@@ -18,6 +18,8 @@ const Articles = () => {
         const date = new Date(article.created_at).toLocaleString();
         return (
           <div key={article.article_id} className="article">
+            <h3>{article.title}</h3> - {article.topic}
+            <p> {article.body.substr(0, 229) + "..."}</p>
             <p>
               by {article.author}, on {date}
             </p>
