@@ -18,3 +18,13 @@ export const fetchTopics = async () => {
   }
 };
 
+
+export const fetchSingleArticle = async (article_id) => {
+  try {
+    const singleArticle = await axios.get(`https://wb-news.herokuapp.com/api/articles/${article_id}`);
+      return singleArticle.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
