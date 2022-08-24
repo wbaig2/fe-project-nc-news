@@ -1,6 +1,6 @@
 import { fetchArticles } from "../api"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Articles = () => {
   const { topic_slug } = useParams();
@@ -13,20 +13,22 @@ const Articles = () => {
   }, [topic_slug]);
 
   return (
-    <>
+    <div className="article-container">
       {articles.map((article) => {
         const date = new Date(article.created_at).toLocaleString();
         return (
-          <div key={article.article_id} className="article">
-            <h3>{article.title}</h3> - {article.topic}
-            <p> {article.body.substr(0, 229) + "..."}</p>
-            <p>
-              by {article.author}, on {date}
-            </p>
-          </div>
+          <Link to={`/articles/${article.article_id}`}>
+            <div className="article" key={article.article_id}>
+              <h3>{article.title}</h3> - {article.topic}
+              <p className="article-body"> {article.body.substr(0, 229) + "..."}</p>
+              <p>
+                by {article.author}, on {date}
+              </p>
+            </div>
+          </Link>
         );
       })}
-    </>
+    </div>
   );
 }
 
