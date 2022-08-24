@@ -1,9 +1,9 @@
-import './App.css';
-import Header from './components/Header';
-import Main from './components/Main';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Articles from './components/Articles';
-import SingleArticle from './components/SingleArticle';
+import "./App.css";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Articles from "./components/Articles";
+import SingleArticle from "./components/SingleArticle";
 
 function App() {
   return (

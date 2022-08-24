@@ -28,3 +28,13 @@ export const fetchSingleArticle = async (article_id) => {
   }
 };
 
+export const updateArticleVotes = async (article_id, changeVotesBy) => {
+  const voteUpdate = { inc_votes: changeVotesBy };
+  try {
+    const updateVotes = await axios.patch(`https://wb-news.herokuapp.com/api/articles/${article_id}`, voteUpdate);
+    return updateVotes.data;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
