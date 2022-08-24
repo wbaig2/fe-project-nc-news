@@ -9,6 +9,7 @@ const Votes = ({ votes, article_id }) => {
     const changeVotesBy = 1;
 
     setOptimisticVotes((currOptimisticVotes) => {
+      setErr(null);
       return currOptimisticVotes + changeVotesBy;
     });
     updateArticleVotes(article_id, changeVotesBy).catch(
@@ -23,6 +24,7 @@ const Votes = ({ votes, article_id }) => {
     const changeVotesBy = -1;
 
     setOptimisticVotes((currOptimisticVotes) => {
+      setErr(null);
       return currOptimisticVotes + changeVotesBy;
     });
     updateArticleVotes(article_id, changeVotesBy).catch(
@@ -38,7 +40,8 @@ const Votes = ({ votes, article_id }) => {
   return (
     <>
       <div>Votes: {votes + optimisticVotes}</div>
-      <button onClick={upVote}>👍</button> <button onClick={downVote}>👎</button>
+      <button onClick={upVote}>👍</button>{" "}
+      <button onClick={downVote}>👎</button>
     </>
   );
 };
