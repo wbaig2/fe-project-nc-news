@@ -17,7 +17,8 @@ const Articles = () => {
       {articles.map((article) => {
         const date = new Date(article.created_at).toLocaleString();
         return (
-          <Link to={`/articles/${article.article_id}`}>
+          <div key={article.article_id}>
+            <Link to={`/articles/${article.article_id}`}>
             <div className="article" key={article.article_id}>
               <h3>{article.title}</h3> - {article.topic}
               <p className="article-body"> {article.body.substr(0, 229) + "..."}</p>
@@ -26,6 +27,8 @@ const Articles = () => {
               </p>
             </div>
           </Link>
+          </div>
+          
         );
       })}
     </div>
