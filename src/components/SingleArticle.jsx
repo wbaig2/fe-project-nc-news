@@ -2,16 +2,24 @@ import { fetchSingleArticle } from "../api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Votes from "./Votes";
+import Comments from "./Comments";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState({});
+  const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
     fetchSingleArticle(article_id).then(({ article }) => {
       setSingleArticle(article);
     });
   }, [article_id]);
+
+  const toggleShowComments = () => {
+    setShowComments((currShowComments) => {
+      return !currShowComments;
+    })
+  }
 
   const date = new Date(singleArticle.created_at).toLocaleString();
 
@@ -23,6 +31,10 @@ const SingleArticle = () => {
         by {singleArticle.author}, on {date}
       </p>
       <Votes votes={singleArticle.votes} article_id={singleArticle.article_id} />
+      <p align="center">
+      <button className="toggle-comments-btn" onClick={toggleShowComments}>{showComments ? 'Hide Comments' : 'Show Comments'}</button>  
+      </p>
+      {showComments ? <Comments article_id={article_id} /> : null}
     </div>
   );
 };

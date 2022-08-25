@@ -1,8 +1,8 @@
 import axios from "axios"
 
-export const fetchArticles = async (topic_slug) => {
+export const fetchArticles = async (topic) => {
   try {
-    const articlesByTopic = await axios.get(`https://wb-news.herokuapp.com/api/articles`, { params: { topic: topic_slug} });
+    const articlesByTopic = await axios.get(`https://wb-news.herokuapp.com/api/articles`, { params: { topic } });
       return articlesByTopic.data;
   } catch (error) {
     console.log(error);
@@ -38,3 +38,11 @@ export const updateArticleVotes = async (article_id, changeVotesBy) => {
   }
 }
 
+export const fetchComments = async (article_id) => {
+  try {
+    const getComments = await axios.get(`https://wb-news.herokuapp.com/api/articles/${article_id}/comments`);
+    return getComments.data;
+  } catch (error) {
+    console.log(error)
+  }
+}
