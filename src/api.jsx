@@ -55,3 +55,11 @@ export const postComment = async (article_id, username, body) => {
     console.log(error)
   }
 }
+
+export const deleteComment = async (comment_id) => {
+  try {
+    await axios.delete(`https://wb-news.herokuapp.com/api/comments/${comment_id}` );
+  } catch (error) {
+    console.log(error)
+  }
+}

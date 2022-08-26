@@ -15,8 +15,6 @@ const PostComment = ({ articleComments, setArticleComments }) => {
     setDisabled(true);
     setPosting(true);
     postComment(article_id, username, comment).then(({comment}) => {
-      console.log(comment)
-  
       setArticleComments([comment, ...articleComments]);
       setDisabled(false);
       setPosting(false);
