@@ -42,6 +42,10 @@ body {
   max-height: 0;
 }
 
+.article-container > div:hover {
+  transform: scale(1.01);
+}
+
 a {
   all: unset;
 }
@@ -72,6 +76,10 @@ a {
   border: solid 1px grey;
   background-color: #ededed;
   resize: none;
+}
+
+.sort-inputs {
+  margin: 20px 55px 20px 5px;
 }
 
 @media screen and (min-width: 768px) {

@@ -16,6 +16,7 @@ const Main = () => {
     <>
       <div>
         <ul className="ul-topics">
+          <li className="li-topics"><Link to={`/`} className="button-topics">All Articles</Link></li>
           {topics.map((topic) => {
             return (
               <li className="li-topics" key={topic.slug}>
