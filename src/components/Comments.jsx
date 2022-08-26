@@ -13,7 +13,7 @@ const Comments = ({ article_id, articleComments, setArticleComments }) => {
 
   return (
     <>
-      <div>{loading ? "Loading..." : ""}</div>
+      <p>{loading ? "Loading..." : ""}</p>
       {articleComments.map((articleComment) => {
         const date = new Date(articleComment.created_at).toLocaleString();
         return (
