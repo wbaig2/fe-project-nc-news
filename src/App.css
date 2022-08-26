@@ -42,6 +42,10 @@ body {
   max-height: 0;
 }
 
+.article-container > div:hover {
+  transform: scale(1.01);
+}
+
 a {
   all: unset;
 }
