@@ -46,3 +46,12 @@ export const fetchComments = async (article_id) => {
     console.log(error)
   }
 }
+
+export const postComment = async (article_id, username, body) => {
+  try {
+    const addComment = await axios.post(`https://wb-news.herokuapp.com/api/articles/${article_id}/comments`, { username, body } );
+    return addComment.data;
+  } catch (error) {
+    console.log(error)
+  }
+}

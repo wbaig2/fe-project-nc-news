@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 import { fetchComments } from "../api";
 
-const Comments = ({ article_id }) => {
-  const [articleComments, setArticleComments] = useState([]);
+const Comments = ({ article_id, articleComments, setArticleComments }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchComments(article_id).then(({ comments }) => {
-      setLoading(false)
+      setLoading(false);
       setArticleComments(comments);
     });
-  }, [article_id]);
+  }, [article_id, articleComments, setArticleComments]);
 
   return (
     <>
-    <div>{loading ? "Loading..." : ''}</div>
+      <p>{loading ? "Loading..." : ""}</p>
       {articleComments.map((articleComment) => {
         const date = new Date(articleComment.created_at).toLocaleString();
         return (

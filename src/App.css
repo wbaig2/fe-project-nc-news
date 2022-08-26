@@ -8,8 +8,15 @@
   text-align: center;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .content {
   width: 100vw;
+  height: 100vw;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -17,7 +24,8 @@
   padding: 10px;
 }
 
-.article {
+.article,
+.article-single {
   border: 1px solid lightgray;
   border-radius: 10px;
   margin: 15px;
@@ -38,12 +46,32 @@ a {
   all: unset;
 }
 
+.comment {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px 25px 15px 25px;
+  background-color: white;
+  width: 90vw;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  font-size: 16px;
+}
+
 .toggle-comments-btn {
   font-size: 1rem;
   margin: 20px 0px 20px;
-  padding: 10px;
+  padding: 5px 10px 5px 10px;
   border-radius: 7px;
   border: 1px solid lightgray;
+}
+
+.new-comment-box {
+  margin: 20px;
+  border-radius: 7px;
+  border: solid 1px grey;
+  background-color: #ededed;
+  resize: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -59,13 +87,13 @@ a {
   }
 
   a,
-  .toggle-comments-btn:hover {
+  button:enabled:hover {
     cursor: pointer;
   }
 
   .content {
     width: 50vw;
-    height: 100vw;
+    height: 100%;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -140,9 +168,15 @@ a {
     margin: 10px;
     padding: 15px 25px 15px 25px;
     background-color: white;
-
+    width: 35vw;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
       rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     font-size: 16px;
+  }
+
+  .new-comment-box {
+    margin: 20px;
+    border-radius: 7px;
+    border: solid 1px grey;
   }
 }
