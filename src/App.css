@@ -74,6 +74,10 @@ a {
   resize: none;
 }
 
+.sort-inputs {
+  margin: 20px 55px 20px 5px;
+}
+
 @media screen and (min-width: 768px) {
   body {
     background-image: linear-gradient(to right, #283048, #859398);
